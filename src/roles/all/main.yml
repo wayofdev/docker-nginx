@@ -1,0 +1,58 @@
+---
+
+- name: Load k8s variables
+  include_vars:
+    file: group_vars/k8s.yml
+    name: type
+  when: level == "k8s"
+
+- name: Load dev variables
+  include_vars:
+    file: group_vars/dev.yml
+    name: type
+  when: level == "dev"
+
+- name: Create dist directories
+  file:
+    path: "{{ item.path }}"
+    state: directory
+    mode: 0775
+    recurse: yes
+  with_items:
+    - "{{ tpl_directories }}"
+
+- name: Generate Dockerfiles
+  template:
+    src: "{{ item.src }}"
+    dest: "{{ item.dst }}"
+    force: true
+    mode: 0644
+  with_items:
+    - "{{ tpl_dockerfiles }}"
+
+- name: Generate nginx configuration files
+  template:
+    src: "{{ item.src }}"
+    dest: "{{ item.dst }}"
+    force: true
+    mode: 0644
+  with_items:
+    - "{{ tpl_configs }}"
+
+- name: Generate Dockerfile Goss tests
+  template:
+    src: "{{ item.src }}"
+    dest: "{{ item.dst }}"
+    force: true
+    mode:  0644
+  with_items:
+    - "{{ tpl_docker_tests }}"
+
+- name: Copy SSL certs
+  template:
+    src: "{{ item.src }}"
+    dest: "{{ item.dst }}"
+    force: true
+    mode: 0644
+  with_items:
+    - "{{ tpl_certs }}"
