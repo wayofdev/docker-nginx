@@ -51,6 +51,8 @@ tpl_configs:
 tpl_docker_tests:
   - src: Dockerfiles/all/goss.yaml.j2
     dst: "../dist/{{ level }}-{{ os_version }}/goss.yaml"
+  - src: Dockerfiles/all/goss_wait.yaml
+    dst: "../dist/{{ level }}-{{ os_version }}/goss_wait.yaml"
 
 
 
