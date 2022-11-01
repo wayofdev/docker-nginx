@@ -37,7 +37,7 @@ default: all
 help:
 	@echo 'Management commands for package:'
 	@echo 'Usage:'
-	@echo '    ${MAKE_CMD_COLOR}make${RST}                       Setups dependencies for fresh-project, like package install, git hooks and others...'
+	@echo '    ${MAKE_CMD_COLOR}make${RST}                       Builds default image and then runs dgoss tests'
 	@grep -E '^[a-zA-Z_0-9%-]+:.*?## .*$$' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; {printf "    ${MAKE_CMD_COLOR}make %-21s${RST} %s\n", $$1, $$2}'
 	@echo
 	@echo '    📑 Logs are stored in      $(MAKE_LOGFILE)'

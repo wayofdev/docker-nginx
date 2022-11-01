@@ -17,7 +17,7 @@
     path: "{{ item.path }}"
     state: directory
     mode: 0775
-    recurse: yes
+    recurse: true
   with_items:
     - "{{ tpl_directories }}"
 
@@ -39,7 +39,7 @@
   with_items:
     - "{{ tpl_configs }}"
 
-- name: Generate Dockerfile Goss tests
+- name: Generate Dockerfile dgoss tests
   template:
     src: "{{ item.src }}"
     dest: "{{ item.dst }}"

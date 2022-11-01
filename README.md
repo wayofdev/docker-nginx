@@ -1,8 +1,8 @@
 <br>
 
 <div align="center">
-<img width="456" src="https://raw.githubusercontent.com/wayofdev/ansible-role-dock/master/assets/logo.gh-light-mode-only.png#gh-light-mode-only">
-<img width="456" src="https://raw.githubusercontent.com/wayofdev/ansible-role-dock/master/assets/logo.gh-dark-mode-only.png#gh-dark-mode-only">
+<img width="456" src="https://raw.githubusercontent.com/wayofdev/docker-nginx/master/assets/logo.gh-light-mode-only.png#gh-light-mode-only">
+<img width="456" src="https://raw.githubusercontent.com/wayofdev/docker-nginx/master/assets/logo.gh-dark-mode-only.png#gh-dark-mode-only">
 </div>
 
 <br>
@@ -31,11 +31,19 @@ To install dependencies and start development you can check contents of our `Mak
 
 ### →  Requirments
 
-For testing purposes we use **dgoss**, follow installation instructions on [their official README](https://github.com/aelsabbahy/goss/blob/master/extras/dgoss/README.md)
+For testing purposes we use **goss** and **dgoss**, follow installation instructions on [their official README](https://github.com/aelsabbahy/goss/blob/master/extras/dgoss/README.md)
 
 <br>
 
 ### → Building locally
+
+Generating distributable Dockerfiles from yaml source code:
+
+```bash
+$ make generate
+```
+
+<br>
 
 Building default image:
 
@@ -72,6 +80,22 @@ To test all images:
 ```bash
 $ make test TEMPLATE=dev-alpine
 $ make test TEMPLATE=k8s-alpine
+```
+
+<br>
+
+### → Code quality tools
+
+Run **yamllint** to validate all yaml files in project:
+
+```bash
+$ make lint
+```
+
+Run hadolint to validate created Dockerfiles:
+
+```bash
+$ make hadolint
 ```
 
 <br>

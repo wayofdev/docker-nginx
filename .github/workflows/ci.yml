@@ -1,6 +1,8 @@
+---
+
 name: ci
 
-on:
+on:  # yamllint disable-line rule:truthy
   push:
     branches:
       - 'master'
@@ -100,3 +102,5 @@ jobs:
           tags: ${{ steps.meta.outputs.tags }}
           cache-from: type=registry,ref=${{ env.IMAGE_TAG }}
           cache-to: type=inline
+
+...

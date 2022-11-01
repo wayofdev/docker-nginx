@@ -5,11 +5,9 @@
 edit_comment: "# Auto-generated via Ansible: edit src/Dockerfiles/all/Dockerfile.j2 instead."
 
 
-
 # Variables
 ########################################################################################################################
 nginx_version: "mainline-alpine"
-
 
 
 # Dist directories
@@ -19,13 +17,11 @@ tpl_directories:
   - path: "../dist/{{ level }}-{{ os_version }}/certs"
 
 
-
 # Dockerfile paths
 ########################################################################################################################
 tpl_dockerfiles:
   - src: Dockerfiles/all/Dockerfile.j2
     dst: "../dist/{{ level }}-{{ os_version }}/Dockerfile"
-
 
 
 # Additional configuration files
@@ -45,7 +41,6 @@ tpl_configs:
     dst: "../dist/{{ level }}-{{ os_version }}/configs/nginx.conf"
 
 
-
 # Dgoss tests
 ########################################################################################################################
 tpl_docker_tests:
@@ -53,7 +48,6 @@ tpl_docker_tests:
     dst: "../dist/{{ level }}-{{ os_version }}/goss.yaml"
   - src: Dockerfiles/all/goss_wait.yaml
     dst: "../dist/{{ level }}-{{ os_version }}/goss_wait.yaml"
-
 
 
 # SSL certs
