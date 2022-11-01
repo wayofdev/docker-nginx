@@ -53,8 +53,8 @@ $ make
 Building all images:
 
 ```bash
-$ make build TEMPLATE=dev
-$ make build TEMPLATE=k8s
+$ make build TEMPLATE=dev-alpine
+$ make build TEMPLATE=k8s-alpine
 ```
 
 <br>
@@ -70,8 +70,8 @@ $ make test
 To test all images:
 
 ```bash
-$ make test TEMPLATE=dev
-$ make test TEMPLATE=k8s
+$ make test TEMPLATE=dev-alpine
+$ make test TEMPLATE=k8s-alpine
 ```
 
 <br>
