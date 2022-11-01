@@ -23,7 +23,7 @@
 
 This image is used together with [wayofdev/docker-php-dev](https://github.com/wayofdev/docker-php-dev) and other WOD images, to create local development environment for our projects.
 
-<br>
+![Screenshot](assets/screenshot.png)
 
 ## ⚙️ Development
 
