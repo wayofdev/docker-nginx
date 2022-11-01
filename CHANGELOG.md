@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.1.1](https://github.com/wayofdev/docker-nginx/compare/v1.1.0...v1.1.1) (2022-11-01)
+
+
+### Bug Fixes
+
+* yaml linting, docs ([b74f3ae](https://github.com/wayofdev/docker-nginx/commit/b74f3ae22fdd4e85aefe3f61c2ee87d1f4aece1e))
+
+
+### Miscellaneous
+
+* missing dist folder ([26d35cc](https://github.com/wayofdev/docker-nginx/commit/26d35cc68d88b7e58428ddd40e62fa3a4226e987))
+
 ## [1.1.0](https://github.com/wayofdev/docker-nginx/compare/v1.0.2...v1.1.0) (2022-11-01)
 
 
