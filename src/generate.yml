@@ -6,3 +6,5 @@
     - template
   tasks:
     - import_tasks: roles/all/main.yml
+
+...

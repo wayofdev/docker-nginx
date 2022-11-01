@@ -67,3 +67,5 @@ tpl_certs:
     dst: "../dist/{{ level }}-{{ os_version }}/certs/"
   - src: certs/rootCA.pem
     dst: "../dist/{{ level }}-{{ os_version }}/certs/"
+
+...
