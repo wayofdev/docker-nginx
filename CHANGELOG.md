@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.2](https://github.com/wayofdev/docker-nginx/compare/v1.1.1...v1.1.2) (2022-11-01)
+
+
+### Documentation
+
+* add console screenshot ([df9333a](https://github.com/wayofdev/docker-nginx/commit/df9333ab07204417778a37653392f78e6dec099c))
+
 ## [1.1.1](https://github.com/wayofdev/docker-nginx/compare/v1.1.0...v1.1.1) (2022-11-01)
 
 
