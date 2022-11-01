@@ -1,0 +1,7 @@
+---
+
+process:
+  nginx:
+    running: true
+
+...

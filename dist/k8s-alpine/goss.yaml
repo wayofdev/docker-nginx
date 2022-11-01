@@ -1,0 +1,96 @@
+---
+
+file:
+  /etc/nginx/conf.d/00_upstream.conf:
+    filetype: file
+    exists: true
+    owner: www-data
+    group: www-data
+  /etc/nginx/conf.d/default.conf:
+    filetype: file
+    exists: true
+  /etc/nginx/nginx.conf:
+    filetype: file
+    exists: true
+  /var/cache/nginx:
+    filetype: directory
+    exists: true
+    owner: www-data
+    group: www-data
+  /etc/nginx/ssl:
+    filetype: directory
+    exists: true
+    owner: www-data
+    group: www-data
+  /etc/nginx/ssl/cert.pem:
+    filetype: file
+    exists: true
+  /etc/nginx/ssl/key.pem:
+    filetype: file
+    exists: true
+  /etc/nginx/ssl/dhparam.pem:
+    filetype: file
+    exists: true
+  /etc/nginx/ssl/rootCA.pem:
+    filetype: file
+    exists: true
+process:
+  nginx:
+    running: true
+package:
+  nginx:
+    installed: true
+  curl:
+    installed: true
+group:
+  www-data:
+    exists: true
+user:
+  www-data:
+    exists: true
+    groups:
+      - www-data
+port:
+  tcp:8880:
+    listening: true
+    ip:
+      - 0.0.0.0
+  tcp:8443:
+    listening: true
+    ip:
+      - 0.0.0.0
+http:
+  http://localhost:8880/:
+    status: 200
+    allow-insecure: true
+    no-follow-redirects: false
+    timeout: 2000
+    body:
+      - '<h1>Welcome to nginx!</h1>'
+  http://localhost:8880/404:
+    allow-insecure: true
+    status: 404
+https:
+  https://localhost:8443/:
+    status: 200
+    allow-insecure: true
+    no-follow-redirects: false
+    timeout: 2000
+    body:
+      - '<h1>Welcome to nginx!</h1>'
+  https://localhost:8443/404:
+    allow-insecure: true
+    status: 404
+command:
+  ### Plain / without SSL
+  "curl -ksI http://localhost:8880 -o/dev/null -w '%{http_version}\n'":
+    stdout:
+      - "1"
+    exit-status: 0
+  ### SSL enabled
+  "curl -ksI --insecure https://localhost:8443 -o/dev/null -w '%{http_version}\n'":
+    stdout:
+      - "2"
+    exit-status: 0
+
+...
