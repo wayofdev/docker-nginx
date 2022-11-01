@@ -11,6 +11,9 @@ on:  # yamllint disable-line rule:truthy
   pull_request:
     branches:
       - 'master'
+  release:
+    types:
+      - 'created'
   schedule:
     # Every sunday at 01:10
     - cron: '10 1 * * 0'
