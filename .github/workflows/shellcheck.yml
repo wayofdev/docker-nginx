@@ -23,5 +23,3 @@ jobs:
         with:
           severity: warning
           token: ${{ secrets.GITHUB_TOKEN }}
-
-...
