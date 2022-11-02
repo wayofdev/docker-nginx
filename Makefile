@@ -86,7 +86,8 @@ hadolint:  ## Run hadolint over dist Dockerfiles
 # Git Actions
 # ------------------------------------------------------------------------------------
 hooks: ## Install git hooks from pre-commit-config
-	pre-commit install --hook-type commit-msg
+	pre-commit install
+	pre-commit autoupdate
 .PHONY: hooks
 
 
@@ -99,10 +100,10 @@ lint: ## Lints yaml files inside project
 
 # Ansible Actions
 # ------------------------------------------------------------------------------------
-generate:
+generate: ## Generate dist files from src folder using ansible playbook
 	ansible-playbook src/generate.yml
 PHONY: generate
 
-clean:
+clean: ## Deletes all files in dist folder
 	rm -rf ./dist/*
 PHONY: clean
