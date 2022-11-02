@@ -86,7 +86,6 @@ hadolint:  ## Run hadolint over dist Dockerfiles
 # Git Actions
 # ------------------------------------------------------------------------------------
 hooks: ## Install git hooks from pre-commit-config
-hooks: ## Install git hooks from pre-commit-config
 	pre-commit install --hook-type commit-msg
 .PHONY: hooks
 
