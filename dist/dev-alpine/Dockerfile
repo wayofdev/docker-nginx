@@ -7,7 +7,7 @@ FROM nginx:mainline-alpine
 LABEL "maintainer"="lotyp <lotyp7@gmail.com>"
 LABEL "vendor"="wayofdev"
 LABEL "org.opencontainers.image.authors"="lotyp <lotyp7@gmail.com>"
-LABEL "org.opencontainers.image.url"="https://hub.docker.com/r/wayofdev/nginx-dev"
+LABEL "org.opencontainers.image.url"="https://hub.docker.com/r/wayofdev/nginx"
 LABEL "org.opencontainers.image.documentation"="https://github.com/wayofdev/docker-nginx"
 LABEL "org.opencontainers.image.source"="https://github.com/wayofdev/docker-nginx"
 LABEL "org.opencontainers.image.vendor"="wayofdev"
