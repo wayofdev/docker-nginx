@@ -1,5 +1,23 @@
 # Changelog
 
+## [1.2.0](https://github.com/wayofdev/docker-nginx/compare/v1.1.2...v1.2.0) (2022-11-15)
+
+
+### Features
+
+* ssl tweaks ([01f503f](https://github.com/wayofdev/docker-nginx/commit/01f503fd423173e84c30d60b363923e71d8bb1e2))
+
+
+### Documentation
+
+* added description to commands ([352be45](https://github.com/wayofdev/docker-nginx/commit/352be45eb78f35da5caa0f5fcd5813897359974d))
+
+
+### Miscellaneous
+
+* fix logo ([4cc068a](https://github.com/wayofdev/docker-nginx/commit/4cc068a7883c0fe2989fa0f9649af5fe7955b2fc))
+* yamllint incorrect warning ([7772280](https://github.com/wayofdev/docker-nginx/commit/777228036324dd11f0ad51e5c71a2b0c3983da09))
+
 ## [1.1.2](https://github.com/wayofdev/docker-nginx/compare/v1.1.1...v1.1.2) (2022-11-01)
 
 
