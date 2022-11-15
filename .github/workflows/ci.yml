@@ -28,7 +28,7 @@ jobs:
         build_type: ['dev', 'k8s']
         os_version: ['alpine']
     steps:
-      - uses: e1himself/goss-installation-action@v1.0.4
+      - uses: e1himself/goss-installation-action@v1.1.0
 
       - name: Checkout
         uses: actions/checkout@v3.1.0
