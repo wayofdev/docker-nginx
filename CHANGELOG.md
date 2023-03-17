@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.3.0](https://github.com/wayofdev/docker-nginx/compare/v1.2.0...v1.3.0) (2023-03-17)
+
+
+### Features
+
+* enable auto-merge ([2b6c212](https://github.com/wayofdev/docker-nginx/commit/2b6c212afd6a88153ad8a690e2e2997ca930ffee))
+* enable auto-updates ([06ebff0](https://github.com/wayofdev/docker-nginx/commit/06ebff05fbd61c83c436a21ecb01b3ee0a6366db))
+
+
+### Miscellaneous
+
+* **deps:** update docker/build-push-action action to v4 ([ff0ecb1](https://github.com/wayofdev/docker-nginx/commit/ff0ecb14bcecd9e8e92f42a5ba9e34f51724b240))
+
 ## [1.2.0](https://github.com/wayofdev/docker-nginx/compare/v1.1.2...v1.2.0) (2022-11-15)
 
 
