@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.1](https://github.com/wayofdev/docker-nginx/compare/v1.3.0...v1.3.1) (2023-03-23)
+
+
+### Miscellaneous
+
+* **deps:** update peter-evans/enable-pull-request-automerge action to v3 ([46b8dd9](https://github.com/wayofdev/docker-nginx/commit/46b8dd9faa93f9a7c3d4ae050c24e77a5cc482aa))
+
 ## [1.3.0](https://github.com/wayofdev/docker-nginx/compare/v1.2.0...v1.3.0) (2023-03-17)
 
 
