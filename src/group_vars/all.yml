@@ -13,15 +13,15 @@ nginx_version: "mainline-alpine"
 # Dist directories
 ########################################################################################################################
 tpl_directories:
-  - path: "../dist/{{ level }}-{{ os_version }}/configs"
-  - path: "../dist/{{ level }}-{{ os_version }}/certs"
+  - path: "../dist/{{ level }}-{{ os_name }}/configs"
+  - path: "../dist/{{ level }}-{{ os_name }}/certs"
 
 
 # Dockerfile paths
 ########################################################################################################################
 tpl_dockerfiles:
   - src: Dockerfiles/all/Dockerfile.j2
-    dst: "../dist/{{ level }}-{{ os_version }}/Dockerfile"
+    dst: "../dist/{{ level }}-{{ os_name }}/Dockerfile"
 
 
 # Additional configuration files
@@ -29,37 +29,37 @@ tpl_dockerfiles:
 tpl_configs:
   # 00-set-upstream.sh
   - src: config/00-set-upstream.sh.j2
-    dst: "../dist/{{ level }}-{{ os_version }}/configs/00-set-upstream.sh"
+    dst: "../dist/{{ level }}-{{ os_name }}/configs/00-set-upstream.sh"
   # 00_upstream.conf
   - src: config/00_upstream.conf.j2
-    dst: "../dist/{{ level }}-{{ os_version }}/configs/00_upstream.conf"
+    dst: "../dist/{{ level }}-{{ os_name }}/configs/00_upstream.conf"
   ## default.conf
   - src: config/default.conf.j2
-    dst: "../dist/{{ level }}-{{ os_version }}/configs/default.conf"
+    dst: "../dist/{{ level }}-{{ os_name }}/configs/default.conf"
   ## nginx.conf
   - src: config/nginx.conf.j2
-    dst: "../dist/{{ level }}-{{ os_version }}/configs/nginx.conf"
+    dst: "../dist/{{ level }}-{{ os_name }}/configs/nginx.conf"
 
 
 # Dgoss tests
 ########################################################################################################################
 tpl_docker_tests:
   - src: Dockerfiles/all/goss.yaml.j2
-    dst: "../dist/{{ level }}-{{ os_version }}/goss.yaml"
+    dst: "../dist/{{ level }}-{{ os_name }}/goss.yaml"
   - src: Dockerfiles/all/goss_wait.yaml
-    dst: "../dist/{{ level }}-{{ os_version }}/goss_wait.yaml"
+    dst: "../dist/{{ level }}-{{ os_name }}/goss_wait.yaml"
 
 
 # SSL certs
 ########################################################################################################################
 tpl_certs:
   - src: certs/cert.pem
-    dst: "../dist/{{ level }}-{{ os_version }}/certs/"
+    dst: "../dist/{{ level }}-{{ os_name }}/certs/"
   - src: certs/key.pem
-    dst: "../dist/{{ level }}-{{ os_version }}/certs/"
+    dst: "../dist/{{ level }}-{{ os_name }}/certs/"
   - src: certs/dhparam.pem
-    dst: "../dist/{{ level }}-{{ os_version }}/certs/"
+    dst: "../dist/{{ level }}-{{ os_name }}/certs/"
   - src: certs/rootCA.pem
-    dst: "../dist/{{ level }}-{{ os_version }}/certs/"
+    dst: "../dist/{{ level }}-{{ os_name }}/certs/"
 
 ...

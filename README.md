@@ -13,7 +13,7 @@
 <a href="https://actions-badge.atrox.dev/wayofdev/docker-nginx/goto"><img alt="Build Status" src="https://img.shields.io/endpoint.svg?url=https%3A%2F%2Factions-badge.atrox.dev%2Fwayofdev%2Fdocker-nginx%2Fbadge&style=flat-square"/></a>
 <a href="https://github.com/wayofdev/docker-nginx/tags"><img src="https://img.shields.io/github/v/tag/wayofdev/docker-nginx?sort=semver&style=flat-square" alt="Latest Version"></a>
 <a href="https://hub.docker.com/repository/docker/wayofdev/nginx"><img alt="Docker Pulls" src="https://img.shields.io/docker/pulls/wayofdev/nginx?style=flat-square"></a>
-<a href="LICENSE"><img src="https://img.shields.io/github/license/wayofdev/docker-nginx.svg?style=flat-square&color=blue" alt="Software License"/></a>
+<a href="LICENSE.md"><img src="https://img.shields.io/github/license/wayofdev/docker-nginx.svg?style=flat-square&color=blue" alt="Software License"/></a>
 <a href="#"><img alt="Commits since latest release" src="https://img.shields.io/github/commits-since/wayofdev/docker-nginx/latest?style=flat-square"></a>
 </div>
 
@@ -29,7 +29,7 @@ This image is used together with [wayofdev/docker-php-dev](https://github.com/wa
 
 To install dependencies and start development you can check contents of our `Makefile`
 
-### →  Requirments
+### →  Requirements
 
 For testing purposes we use **goss** and **dgoss**, follow installation instructions on [their official README](https://github.com/aelsabbahy/goss/blob/master/extras/dgoss/README.md)
 
@@ -49,6 +49,7 @@ Building default image:
 
 ```bash
 $ git clone git@github.com:wayofdev/docker-nginx.git
+$ cd docker-nginx
 $ make build
 ```
 
@@ -61,8 +62,8 @@ $ make
 Building all images:
 
 ```bash
-$ make build TEMPLATE=dev-alpine
-$ make build TEMPLATE=k8s-alpine
+$ make build IMAGE_TEMPLATE=dev-alpine
+$ make build IMAGE_TEMPLATE=k8s-alpine
 ```
 
 <br>
@@ -78,8 +79,8 @@ $ make test
 To test all images:
 
 ```bash
-$ make test TEMPLATE=dev-alpine
-$ make test TEMPLATE=k8s-alpine
+$ make test IMAGE_TEMPLATE=dev-alpine
+$ make test IMAGE_TEMPLATE=k8s-alpine
 ```
 
 <br>
@@ -89,13 +90,19 @@ $ make test TEMPLATE=k8s-alpine
 Run **yamllint** to validate all yaml files in project:
 
 ```bash
-$ make lint
+$ make lint-yaml
 ```
 
 Run hadolint to validate created Dockerfiles:
 
 ```bash
-$ make hadolint
+$ make lint-docker
+```
+
+Run ansible-lint to validate project files:
+
+```bash
+$ make lint-ansible
 ```
 
 <br>
@@ -117,8 +124,7 @@ This repository was created in **2022** by [lotyp / wayofdev](https://github.com
 <img align="left" src="https://img.shields.io/github/contributors-anon/wayofdev/docker-nginx?style=for-the-badge"/>
 
 <a href="https://github.com/wayofdev/docker-nginx/graphs/contributors">
-  <img src="https://opencollective.com/wod/contributors.svg?width=890&button=false">
+  <img src="https://opencollective.com/wod/contributors.svg?width=890&button=false" alt="Supporters">
 </a>
 
 <br>
-

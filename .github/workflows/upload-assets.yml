@@ -15,8 +15,6 @@ jobs:
     steps:
       - name: 📦 Check out the codebase
         uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
 
       - name: 🚀 Generate dist files
         run: make generate
