@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.4.0](https://github.com/wayofdev/docker-nginx/compare/v1.3.1...v1.4.0) (2023-07-02)
+
+
+### Features
+
+* allow http traffic ([fd2080a](https://github.com/wayofdev/docker-nginx/commit/fd2080a1f14bafae2efa492653749b531e062b33))
+
 ## [1.3.1](https://github.com/wayofdev/docker-nginx/compare/v1.3.0...v1.3.1) (2023-03-23)
 
 
