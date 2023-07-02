@@ -19,8 +19,8 @@ jobs:
         id: matrix
         run: |
           echo 'matrix={
-            "os_name": ["alpine"],
-            "build_type": ["dev", "k8s"]
+            "build_type": ["dev", "k8s"],
+            "os_name": ["alpine"]
           }' | tr -d '\n' >> "$GITHUB_OUTPUT"
 
   build:
@@ -33,7 +33,7 @@ jobs:
       push-to-hub: true
       image-namespace: "wayofdev/nginx"
       image-template-path: "./dist"
-      image-template: ${{ matrix.php_version }}-${{ matrix.php_type }}-${{ matrix.os_name }}
+      image-template: ${{ matrix.build_type }}-${{ matrix.os_name }}
       image-version: latest
     secrets:
       docker-username: ${{ secrets.DOCKER_USERNAME }}
