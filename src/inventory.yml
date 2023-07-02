@@ -7,10 +7,10 @@ all:
         k8s-alpine:
           ansible_connection: local
           level: k8s
-          os_version: alpine
+          os_name: alpine
         dev-alpine:
           ansible_connection: local
           level: dev
-          os_version: alpine
+          os_name: alpine
 
 ...
