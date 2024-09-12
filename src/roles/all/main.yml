@@ -1,59 +1,59 @@
 ---
 
 - name: Load k8s variables
-  include_vars:
+  ansible.builtin.include_vars:
     file: group_vars/k8s.yml
     name: type
   when: level == "k8s"
 
 - name: Load dev variables
-  include_vars:
+  ansible.builtin.include_vars:
     file: group_vars/dev.yml
     name: type
   when: level == "dev"
 
 - name: Create dist directories
-  file:
+  ansible.builtin.file:
     path: "{{ item.path }}"
     state: directory
-    mode: 0775
+    mode: "0775"
     recurse: true
   with_items:
     - "{{ tpl_directories }}"
 
 - name: Generate Dockerfiles
-  template:
+  ansible.builtin.template:
     src: "{{ item.src }}"
     dest: "{{ item.dst }}"
     force: true
-    mode: 0644
+    mode: "0644"
   with_items:
     - "{{ tpl_dockerfiles }}"
 
 - name: Generate nginx configuration files
-  template:
+  ansible.builtin.template:
     src: "{{ item.src }}"
     dest: "{{ item.dst }}"
     force: true
-    mode: 0644
+    mode: "0644"
   with_items:
     - "{{ tpl_configs }}"
 
 - name: Generate Dockerfile dgoss tests
-  template:
+  ansible.builtin.template:
     src: "{{ item.src }}"
     dest: "{{ item.dst }}"
     force: true
-    mode:  0644
+    mode: " 0644"
   with_items:
     - "{{ tpl_docker_tests }}"
 
 - name: Copy SSL certs
-  template:
+  ansible.builtin.template:
     src: "{{ item.src }}"
     dest: "{{ item.dst }}"
     force: true
-    mode: 0644
+    mode: "0644"
   with_items:
     - "{{ tpl_certs }}"
 

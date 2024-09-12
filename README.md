@@ -1,13 +1,13 @@
-<br>
-
-<div align="center">
-<img alt="Logo" width="456" src="https://raw.githubusercontent.com/wayofdev/docker-nginx/master/assets/logo.gh-light-mode-only.png#gh-light-mode-only">
-<img alt="Logo" width="456" src="https://raw.githubusercontent.com/wayofdev/docker-nginx/master/assets/logo.gh-dark-mode-only.png#gh-dark-mode-only">
-</div>
-
-<br>
-
-<br>
+<p align="center">
+    <br>
+    <a href="https://wayof.dev" target="_blank">
+        <picture>
+            <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/wayofdev/.github/master/assets/logo.gh-dark-mode-only.png">
+            <img width="400" src="https://raw.githubusercontent.com/wayofdev/.github/master/assets/logo.gh-light-mode-only.png" alt="WayOfDev Logo">
+        </picture>
+    </a>
+    <br>
+</p>
 
 <div align="center">
 <a href="https://actions-badge.atrox.dev/wayofdev/docker-nginx/goto"><img alt="Build Status" src="https://img.shields.io/endpoint.svg?url=https%3A%2F%2Factions-badge.atrox.dev%2Fwayofdev%2Fdocker-nginx%2Fbadge&style=flat-square"/></a>
@@ -40,7 +40,7 @@ For testing purposes we use **goss** and **dgoss**, follow installation instruct
 Generating distributable Dockerfiles from yaml source code:
 
 ```bash
-$ make generate
+make generate
 ```
 
 <br>
@@ -48,22 +48,22 @@ $ make generate
 Building default image:
 
 ```bash
-$ git clone git@github.com:wayofdev/docker-nginx.git
-$ cd docker-nginx
-$ make build
+git clone git@github.com:wayofdev/docker-nginx.git
+cd docker-nginx
+make build
 ```
 
 To **build** image, **test** it and then **clean** temporary files run:
 
 ```bash
-$ make
+make
 ```
 
 Building all images:
 
 ```bash
-$ make build IMAGE_TEMPLATE=dev-alpine
-$ make build IMAGE_TEMPLATE=k8s-alpine
+make build IMAGE_TEMPLATE=dev-alpine
+make build IMAGE_TEMPLATE=k8s-alpine
 ```
 
 <br>
@@ -73,14 +73,14 @@ $ make build IMAGE_TEMPLATE=k8s-alpine
 Testing default image:
 
 ```bash
-$ make test
+make test
 ```
 
 To test all images:
 
 ```bash
-$ make test IMAGE_TEMPLATE=dev-alpine
-$ make test IMAGE_TEMPLATE=k8s-alpine
+make test IMAGE_TEMPLATE=dev-alpine
+make test IMAGE_TEMPLATE=k8s-alpine
 ```
 
 <br>
@@ -90,41 +90,63 @@ $ make test IMAGE_TEMPLATE=k8s-alpine
 Run **yamllint** to validate all yaml files in project:
 
 ```bash
-$ make lint-yaml
+make lint-yaml
 ```
 
 Run hadolint to validate created Dockerfiles:
 
 ```bash
-$ make lint-docker
+make lint-docker
 ```
 
 Run ansible-lint to validate project files:
 
 ```bash
-$ make lint-ansible
+make lint-ansible
 ```
 
 <br>
 
-## 🤝 License
+## 🔒 Security Policy
 
-[![Licence](https://img.shields.io/github/license/wayofdev/docker-nginx?style=for-the-badge&color=blue)](./LICENSE)
+This project has a [security policy](.github/SECURITY.md).
 
 <br>
 
-## 🙆🏼‍♂️ Author Information
+## 🙌 Want to Contribute?
 
-This repository was created in **2022** by [lotyp / wayofdev](https://github.com/wayofdev).
+Thank you for considering contributing to the wayofdev community! We are open to all kinds of contributions. If you want to:
+
+- 🤔 [Suggest a feature](https://github.com/wayofdev/docker-nginx/issues/new?assignees=&labels=type%3A+enhancement&projects=&template=2-feature-request.yml&title=%5BFeature%5D%3A+)
+- 🐛 [Report an issue](https://github.com/wayofdev/docker-nginx/issues/new?assignees=&labels=type%3A+documentation%2Ctype%3A+maintenance&projects=&template=1-bug-report.yml&title=%5BBug%5D%3A+)
+- 📖 [Improve documentation](https://github.com/wayofdev/docker-nginx/issues/new?assignees=&labels=type%3A+documentation%2Ctype%3A+maintenance&projects=&template=4-docs-bug-report.yml&title=%5BDocs%5D%3A+)
+- 👨‍💻 [Contribute to the code](./.github/CONTRIBUTING.md)
+
+You are more than welcome. Before contributing, kindly check our [contribution guidelines](.github/CONTRIBUTING.md).
+
+[![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg?style=for-the-badge)](https://conventionalcommits.org)
 
 <br>
 
 ## 🫡 Contributors
 
-<img align="left" src="https://img.shields.io/github/contributors-anon/wayofdev/docker-nginx?style=for-the-badge"/>
-
+<p align="left">
 <a href="https://github.com/wayofdev/docker-nginx/graphs/contributors">
-  <img src="https://opencollective.com/wod/contributors.svg?width=890&button=false" alt="Supporters">
+<img align="left" src="https://img.shields.io/github/contributors-anon/wayofdev/docker-nginx?style=for-the-badge" alt="Contributors Badge"/>
 </a>
+<br>
+<br>
+</p>
+
+## 🌐 Social Links
+
+- **Twitter:** Follow our organization [@wayofdev](https://twitter.com/intent/follow?screen_name=wayofdev) and the author [@wlotyp](https://twitter.com/intent/follow?screen_name=wlotyp).
+- **Discord:** Join our community on [Discord](https://discord.gg/CE3TcCC5vr).
+
+<br>
+
+## ⚖️ License
+
+[![Licence](https://img.shields.io/github/license/wayofdev/docker-nginx?style=for-the-badge&color=blue)](./LICENSE.md)
 
 <br>

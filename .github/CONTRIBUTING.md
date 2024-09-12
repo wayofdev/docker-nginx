@@ -1,6 +1,6 @@
 # Contributing
 
-Welcome to the docker-php-base project!
+Welcome to the docker-nginx project!
 
 We appreciate your interest in contributing. This guide will help you get started, ensuring an effective collaboration.
 
@@ -50,8 +50,8 @@ Optional tools:
 Clone the repository:
 
 ```bash
-git clone git@github.com:wayofdev/docker-php-base.git && \
-cd docker-php-base
+git clone git@github.com:wayofdev/docker-nginx.git && \
+cd docker-nginx
 ```
 
 <br>
@@ -113,17 +113,17 @@ make test
 
 Our project employs [GitHub Actions](https://github.com/features/actions) for continuous integration, ensuring code quality and reliability. We encourage contributors to review our workflow configurations to understand the CI processes:
 
-| Workflow                                                     | Description                                                         |
-|--------------------------------------------------------------|---------------------------------------------------------------------|
-| [`apply-labels.yml`](workflows/apply-labels.yml)             | Auto labels PRs based on rules.                                     |
-| [`auto-merge-release.yml`](workflows/auto-merge-release.yml) | Automatically merges release PRs.                                   |
-| [`build.yml`](workflows/build.yml)                           | Builds Docker images.                                               |
-| [`coding-standards.yml`](workflows/coding-standards.yml)     | Checks `yaml`, `md`, `composer`, `php` and commit coding standards. |
-| [`create-release.yml`](workflows/create-release.yml)         | Creates a release on GitHub.                                        |
-| [`merge.yml`](workflows/merge.yml)                           | Automatically merges PRs.                                           |
-| [`shellcheck.yml`](workflows/shellcheck.yml)                 | Checks shell scripts.                                               |
-| [`test.yml`](workflows/test.yml)                             | Runs tests on Docker images.                                        |
-| [`upload-assets.yml`](workflows/upload-assets.yml)           | Uploads dist assets to GitHub releases.                             |
+| Workflow                                                     | Description                                                  |
+|--------------------------------------------------------------|--------------------------------------------------------------|
+| [`apply-labels.yml`](workflows/apply-labels.yml)             | Auto labels PRs based on rules.                              |
+| [`auto-merge-release.yml`](workflows/auto-merge-release.yml) | Automatically merges release PRs.                            |
+| [`build.yml`](workflows/build.yml)                           | Builds Docker images.                                        |
+| [`coding-standards.yml`](workflows/coding-standards.yml)     | Checks `yaml`, `md`, `composer` and commit coding standards. |
+| [`create-release.yml`](workflows/create-release.yml)         | Creates a release on GitHub.                                 |
+| [`merge.yml`](workflows/merge.yml)                           | Automatically merges PRs.                                    |
+| [`shellcheck.yml`](workflows/shellcheck.yml)                 | Checks shell scripts.                                        |
+| [`test.yml`](workflows/test.yml)                             | Runs tests on Docker images.                                 |
+| [`upload-assets.yml`](workflows/upload-assets.yml)           | Uploads dist assets to GitHub releases.                      |
 
 <br>
 
@@ -314,12 +314,12 @@ Our pre-commit configuration includes several hooks:
 * **Action Validator**: Validates GitHub Actions workflow files.
 * **Ansible Lint**: Checks Ansible playbooks for practices and behavior that could potentially be improved.
 * **Ansible Role Checks**: Several hooks to find issues in Ansible roles:
-    * Find unused variables
-    * Find empty files
-    * Find empty directories
-    * Fix readability issues
-    * Find undefined handlers
-    * Find unquoted values
+  * Find unused variables
+  * Find empty files
+  * Find empty directories
+  * Fix readability issues
+  * Find undefined handlers
+  * Find unquoted values
 
 These hooks help maintain code quality, consistency, and prevent common issues before they are committed to the repository.
 
