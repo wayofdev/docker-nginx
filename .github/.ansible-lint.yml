@@ -5,4 +5,8 @@
 skip_list:
   - experimental
 
+exclude_paths:
+  - ./contrib
+  - ./.venv
+
 ...

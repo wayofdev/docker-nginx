@@ -1,10 +1,12 @@
 ---
 
-- hosts: all
+- name: Generate nginx Dockerfiles
+  hosts: all
   gather_facts: false
   tags:
     - template
   tasks:
-    - import_tasks: roles/all/main.yml
+    - name: Create dist for all supported nginx versions
+      ansible.builtin.import_tasks: roles/all/main.yml
 
 ...
