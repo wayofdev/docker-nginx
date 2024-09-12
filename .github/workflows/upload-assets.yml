@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: 📦 Check out the codebase
-        uses: actions/checkout@v4
+        uses: actions/checkout@v4.1.7
 
       - name: 🚀 Generate dist files
         run: make generate
@@ -23,7 +23,7 @@ jobs:
         run: tar -czvf dist.tar.gz dist
 
       - name: 📤 Upload release assets
-        uses: alexellis/upload-assets@0.4.0
+        uses: alexellis/upload-assets@0.4.1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
