@@ -21,89 +21,302 @@
 
 # Docker Image: Nginx
 
-This image is used together with [wayofdev/docker-php-dev](https://github.com/wayofdev/docker-php-dev) and other WOD images, to create local development environment for our projects.
+This **Docker image** provides a streamlined **Nginx** setup optimized for **local PHP development environments**.
 
-![Screenshot](.github/assets/screenshot.png)
-
-## ⚙️ Development
-
-To install dependencies and start development you can check contents of our `Makefile`
-
-### →  Requirements
-
-For testing purposes we use **goss** and **dgoss**, follow installation instructions on [their official README](https://github.com/aelsabbahy/goss/blob/master/extras/dgoss/README.md)
+It's designed to seamlessly integrate with [wayofdev/docker-php-dev](https://github.com/wayofdev/docker-php-dev) and other (WOD) images, creating an efficient local development ecosystem for web projects.
 
 <br>
 
-### → Building locally
+## 🌟 Why Choose This Image for Local Development?
 
-Generating distributable Dockerfiles from yaml source code:
+- **Ansible-based Configuration:** Easily customizable through Ansible templates
+- **PHP-FPM Optimized:** Pre-configured to work with PHP-FPM for fast local testing and development
+- **SSL Ready:** Includes built-in support for HTTPS using self-signed certificates, mimicking production environments locally
+- **Developer Friendly:** Packed with tools and configurations to enhance local development workflows
+- **Flexible Deployment:** Includes a `k8s-alpine` variant for testing Kubernetes setups locally
+- **Lightweight:** Based on **Alpine Linux** for minimal footprint and faster local builds
+- **Multi-arch Support:** Works on both **x86 (AMD64)** and **ARM64** architectures, supporting various development machines
+- **Regular Updates:** Maintained and updated frequently to align with the latest development practices
+
+Perfect for developing **Laravel** applications, **Symfony** projects, or any **PHP-based web services** in a local environment that closely mirrors production setups.
+
+Provides foundation for creating, testing, and debugging your web applications locally.
+
+<br>
+
+If you **like/use** this package, please consider ⭐️ **starring** it. Thanks!
+
+<br>
+
+## 📦 Image Variants
+
+| Variant    | Description                                                                   |
+|------------|-------------------------------------------------------------------------------|
+| dev-alpine | For local development environments, uses 80 and 443 ports.                    |
+| k8s-alpine | Optimized for k8s and local environments, uses 8880 and 8443 ports, rootless. |
+
+<br>
+
+## 🚀 Usage
+
+### → Pulling the Image
+
+```bash
+docker pull wayofdev/nginx:k8s-alpine-latest
+```
+
+Replace `k8s-alpine-latest` with your desired type, and tag.
+
+### → Available Image Variants
+
+- **Types:** k8s, dev
+- **Architectures:** amd64, arm64
+
+### → Using in Docker Compose
+
+Here's an example `docker-compose.yml` for a typical setup:
+
+```yaml
+services:
+  app:
+    image: wayofdev/php-dev:8.3-fpm-alpine-latest
+    container_name: ${COMPOSE_PROJECT_NAME}-app
+    restart: on-failure
+    networks:
+        - default
+        - shared
+    depends_on:
+        - database
+    links:
+        - database
+    volumes:
+        - ./.github/assets:/assets:rw,cached
+        - ./app:/app:rw,cached
+        - ./.env:/app/.env
+        - ~/.composer:/.composer
+        - ~/.ssh:/home/www-data/.ssh
+    environment:
+      FAKETIME: '+2h'
+      XDEBUG_MODE: '${XDEBUG_MODE:-off}'
+      PHIVE_HOME: /app/.phive
+    dns:
+      - 8.8.8.8
+    extra_hosts:
+      - 'host.docker.internal:host-gateway'
+
+  web:
+    image: wayofdev/nginx:k8s-alpine-latest
+    container_name: ${COMPOSE_PROJECT_NAME}-web
+    restart: on-failure
+    networks:
+      - default
+      - shared
+    depends_on:
+      - app
+    links:
+      - app
+    volumes:
+      - ./app:/app:rw,cached
+      - ./.env:/app/.env
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.api-${COMPOSE_PROJECT_NAME}-secure.rule=Host(`api.${COMPOSE_PROJECT_NAME}.docker`)
+      - traefik.http.routers.api-${COMPOSE_PROJECT_NAME}-secure.entrypoints=websecure
+      - traefik.http.routers.api-${COMPOSE_PROJECT_NAME}-secure.tls=true
+      - traefik.http.services.api-${COMPOSE_PROJECT_NAME}-secure.loadbalancer.server.port=8880
+      - traefik.docker.network=network.${SHARED_SERVICES_NAMESPACE}
+```
+
+#### This configuration includes
+
+- An `app` service using the `wayofdev/php-dev` image for PHP processing.
+- A `web` service using a [custom Nginx image](https://github.com/wayofdev/docker-nginx) for serving the application.
+- Network configuration for both default and shared networks.
+- Volume mounts for application code, assets, and configuration files.
+- Environment variables for PHP and Xdebug configuration.
+- Traefik labels for reverse proxy and SSL termination.
+
+#### Real-world Example
+
+For a comprehensive, real-world example of how to use this image in a Docker Compose setup, please refer to the [wayofdev/laravel-starter-tpl](https://github.com/wayofdev/laravel-starter-tpl) repository. This template provides a fully configured development environment for Laravel projects using the `wayofdev/php-dev` image.
+
+<br>
+
+## ⚙️ Configuration
+
+The Nginx image is pre-configured for optimal performance with PHP applications, but you can customize it further to suit your specific needs.
+
+### → Default Configuration
+
+The default configuration is generated using Ansible templates and includes:
+
+- Optimized settings for PHP-FPM
+- SSL/TLS support with self-signed certificates
+- Gzip compression enabled
+- Basic security headers
+
+### → Custom Configuration
+
+While the configuration is primarily managed through Ansible templates, you can override specific settings:
+
+1. **Environment Variables:** The image uses the following environment variables:
+
+   | Variable               | Default Value | Description                           |
+      |------------------------|---------------|---------------------------------------|
+   | PHP_UPSTREAM_CONTAINER | app           | The name of the PHP-FPM container     |
+   | PHP_UPSTREAM_PORT      | 9000          | The port of the PHP-FPM container     |
+
+   Set these in your `docker-compose.yml` file:
+
+   ```yaml
+   services:
+     web:
+       image: wayofdev/nginx:k8s-alpine-latest
+       environment:
+         - PHP_UPSTREAM_CONTAINER=my-php-app
+         - PHP_UPSTREAM_PORT=9001
+   ```
+
+2. **Volume Mounts:** For more extensive customizations, you can mount your own config files:
+
+   ```yaml
+   services:
+     web:
+       image: wayofdev/nginx:k8s-alpine-latest
+       volumes:
+         - ./custom-nginx.conf:/etc/nginx/nginx.conf
+         - ./custom-default.conf:/etc/nginx/conf.d/default.conf
+   ```
+
+### → SSL Configuration
+
+The image includes self-signed SSL certificates. To use your own:
+
+```yaml
+services:
+  web:
+    image: wayofdev/nginx:k8s-alpine-latest
+    volumes:
+      - ./certs/cert.pem:/etc/nginx/ssl/cert.pem
+      - ./certs/key.pem:/etc/nginx/ssl/key.pem
+```
+
+### → Advanced Configuration
+
+For more advanced configurations:
+
+1. Fork this repository
+2. Modify the Ansible templates in the `src` directory
+3. Regenerate the Dockerfiles using `make generate`
+4. Build your custom image
+
+<br>
+
+## 🔨 Development
+
+This project uses a set of tools for development and testing. The `Makefile` provides various commands to streamline the development process.
+
+### → Requirements
+
+- Docker
+- Make
+- Ansible
+- goss and dgoss for testing
+
+### → Setting Up the Development Environment
+
+Clone the repository:
+
+```bash
+git clone git@github.com:wayofdev/docker-nginx.git && \
+cd docker-nginx
+```
+
+### → Generating Dockerfiles
+
+Ansible is used to generate Dockerfiles and configurations. To generate distributable Dockerfiles from Jinja template source code:
 
 ```bash
 make generate
 ```
 
-<br>
+### → Building Images
 
-Building default image:
+- Build the default image:
 
-```bash
-git clone git@github.com:wayofdev/docker-nginx.git
-cd docker-nginx
-make build
-```
+  ```bash
+  make build
+  ```
 
-To **build** image, **test** it and then **clean** temporary files run:
+  This command builds the image specified by the `IMAGE_TEMPLATE` variable in the Makefile. By default, it's set to `k8s-alpine`.
 
-```bash
-make
-```
+- Build a specific image:
 
-Building all images:
+  ```bash
+  make build IMAGE_TEMPLATE="k8s-alpine"
+  ```
 
-```bash
-make build IMAGE_TEMPLATE=dev-alpine
-make build IMAGE_TEMPLATE=k8s-alpine
-```
+  Replace `8.3-fpm-alpine` with your desired PHP version, type, and OS.
+
+- Build all images:
+
+  ```bash
+  make build IMAGE_TEMPLATE="k8s-alpine"
+  make build IMAGE_TEMPLATE="dev-alpine"
+  ```
+
+  These commands will build all supported image variants.
 
 <br>
 
 ## 🧪 Testing
 
-Testing default image:
+This project uses a testing approach to ensure the quality and functionality of the Docker images. The primary testing tool is [dgoss](https://github.com/aelsabbahy/goss/tree/master/extras/dgoss), which allows for testing Docker containers.
 
-```bash
-make test
-```
+### → Running Tests
 
-To test all images:
+You can run tests using the following commands:
 
-```bash
-make test IMAGE_TEMPLATE=dev-alpine
-make test IMAGE_TEMPLATE=k8s-alpine
-```
+- Test the default image:
 
-<br>
+  ```bash
+  make test
+  ```
 
-### → Code quality tools
+  This command tests the image specified by the `IMAGE_TEMPLATE` variable in the Makefile (default is `k8s-alpine`).
 
-Run **yamllint** to validate all yaml files in project:
+- Test a specific image:
 
-```bash
-make lint-yaml
-```
+  ```bash
+  make test IMAGE_TEMPLATE="k8s-alpine"
+  ```
 
-Run hadolint to validate created Dockerfiles:
+  Replace `8.3-fpm-alpine` with your desired PHP version, type, and OS.
 
-```bash
-make lint-docker
-```
+- Test all images:
 
-Run ansible-lint to validate project files:
+  ```bash
+  make test IMAGE_TEMPLATE="k8s-alpine"
+  make test IMAGE_TEMPLATE="dev-alpine"
+  ```
 
-```bash
-make lint-ansible
-```
+### → Test Configuration
+
+The test configurations are defined in `goss.yaml` files, which are generated for each image variant. These files specify the tests to be run, including:
+
+- File existence and permissions
+- Process checks
+- Port availability
+- Package installations
+- Command outputs
+
+### → Test Process
+
+When you run the `make test` command, the following steps occur:
+
+1. The specified Docker image is built (if not already present).
+2. dgoss runs the tests defined in the `goss.yaml` file against the Docker container.
+3. The test results are displayed in the console.
 
 <br>
 
