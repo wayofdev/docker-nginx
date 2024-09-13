@@ -27,16 +27,12 @@ tpl_dockerfiles:
 # Additional configuration files
 ########################################################################################################################
 tpl_configs:
-  # 00-set-upstream.sh
   - src: config/00-set-upstream.sh.j2
     dst: "../dist/{{ level }}-{{ os_name }}/configs/00-set-upstream.sh"
-  # 00_upstream.conf
   - src: config/00_upstream.conf.j2
     dst: "../dist/{{ level }}-{{ os_name }}/configs/00_upstream.conf"
-  ## default.conf
   - src: config/default.conf.j2
     dst: "../dist/{{ level }}-{{ os_name }}/configs/default.conf"
-  ## nginx.conf
   - src: config/nginx.conf.j2
     dst: "../dist/{{ level }}-{{ os_name }}/configs/nginx.conf"
 
