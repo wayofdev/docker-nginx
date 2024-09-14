@@ -291,7 +291,7 @@ You can run tests using the following commands:
   make test IMAGE_TEMPLATE="k8s-alpine"
   ```
 
-  Replace `8.3-fpm-alpine` with your desired PHP version, type, and OS.
+  Replace `k8s-alpine` with your desired image type, and OS.
 
 - Test all images:
 
