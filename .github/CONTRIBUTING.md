@@ -245,40 +245,33 @@ This command will build the default image (specified by the `IMAGE_TEMPLATE` var
 To test a specific image variant, you can specify the `IMAGE_TEMPLATE` variable:
 
 ```bash
-make test IMAGE_TEMPLATE="8.3-fpm-alpine"
+make test IMAGE_TEMPLATE="k8s-alpine"
 ```
 
-Replace `8.3-fpm-alpine` with the desired PHP version, type, and OS.
+Replace `k8s-alpine` with the desired image type, and OS.
 
 ### → Testing All Images
 
 To test all supported image variants, run:
 
 ```bash
-make test IMAGE_TEMPLATE="8.1-cli-alpine"
-make test IMAGE_TEMPLATE="8.1-fpm-alpine"
-make test IMAGE_TEMPLATE="8.1-supervisord-alpine"
-make test IMAGE_TEMPLATE="8.2-cli-alpine"
-make test IMAGE_TEMPLATE="8.2-fpm-alpine"
-make test IMAGE_TEMPLATE="8.2-supervisord-alpine"
-make test IMAGE_TEMPLATE="8.3-cli-alpine"
-make test IMAGE_TEMPLATE="8.3-fpm-alpine"
-make test IMAGE_TEMPLATE="8.3-supervisord-alpine"
+make test IMAGE_TEMPLATE="k8s-alpine"
+make test IMAGE_TEMPLATE="dev-alpine"
 ```
 
 ### → Test Configuration
 
-The goss test configurations are generated from a Jinja2 template located at `src/Dockerfiles/base/goss.yaml.j2`. This template is used by Ansible to generate specific test configurations for each PHP version, type, and OS combination.
+The goss test configurations are generated from a Jinja2 template located at `src/Dockerfiles/all/goss.yaml.j2`. This template is used by Ansible to generate specific test configurations for each image type, and OS combination.
 
 ### → Writing and Updating Tests
 
-When contributing new features or making changes, please update the `src/Dockerfiles/base/goss.yaml.j2` file. This Jinja2 template defines the tests that will be generated for all image variants. When editing this file:
+When contributing new features or making changes, please update the `src/Dockerfiles/all/goss.yaml.j2` file. This Jinja2 template defines the tests that will be generated for all image variants. When editing this file:
 
-1. Use Jinja2 syntax for dynamic content that should change based on PHP version, type, or OS.
+1. Use Jinja2 syntax for dynamic content that should change based on image type, or OS.
 2. Ensure your tests cover:
-    * Presence and correctness of installed PHP extensions
-    * Proper configuration of PHP and its extensions
-    * Correct functioning of the PHP environment (CLI, FPM, or Supervisord)
+    * Presence and correctness of installed extensions
+    * Proper configuration of nginx and its extensions
+    * Correct functioning of the nginx environment
     * Any additional features or configurations specific to your changes
 
 After updating the template, regenerate the Dockerfiles and test configurations:
@@ -293,7 +286,7 @@ This command will use Ansible to process the updated template and generate new t
 
 Our GitHub Actions workflow (`test.yml`) automatically runs these tests for each pull request and push to the main branch. Ensure that all tests pass in your local environment before submitting a pull request.
 
-Remember, thorough testing is crucial for maintaining the reliability and consistency of our Docker images across different PHP versions and configurations. By updating the central Jinja2 template, we ensure consistency across all our image variants.
+Remember, thorough testing is crucial for maintaining the reliability and consistency of our Docker images across different image types and configurations. By updating the central Jinja2 template, we ensure consistency across all our image variants.
 
 <br>
 
