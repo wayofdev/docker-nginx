@@ -1,5 +1,16 @@
 # Changelog
 
+## [2.0.0](https://github.com/wayofdev/docker-nginx/compare/v1.4.2...v2.0.0) (2024-09-14)
+
+
+### ⚠ BREAKING CHANGES
+
+* migrate to docker-bake.hcl approach
+
+### Features
+
+* migrate to docker-bake.hcl approach ([bf18890](https://github.com/wayofdev/docker-nginx/commit/bf1889077e6ab2792d49c405b06f2148fb67459b))
+
 ## [1.4.2](https://github.com/wayofdev/docker-nginx/compare/v1.4.1...v1.4.2) (2024-09-13)
 
 
