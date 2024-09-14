@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.4.2](https://github.com/wayofdev/docker-nginx/compare/v1.4.1...v1.4.2) (2024-09-13)
+
+
+### Documentation
+
+* update README ([9450615](https://github.com/wayofdev/docker-nginx/commit/9450615d4034c1252a0f60c053eb5ba01142474e))
+
 ## [1.4.1](https://github.com/wayofdev/docker-nginx/compare/v1.4.0...v1.4.1) (2023-09-04)
 
 
