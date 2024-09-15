@@ -36,7 +36,9 @@ COPY ./configs/00_upstream.conf /etc/nginx/conf.d/00_upstream.conf
 COPY ./configs/default.conf /etc/nginx/conf.d/default.conf
 COPY ./configs/nginx.conf /etc/nginx/
 
+# Copy SSL configuration files
 COPY ./certs/ /etc/nginx/ssl/
+COPY ./certs/dhparam.pem /etc/nginx/ssl/dhparam.pem
 
 RUN set -eux \
     && chown 82:82 /docker-entrypoint.d/00-set-upstream.sh \

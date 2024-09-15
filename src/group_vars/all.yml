@@ -8,54 +8,53 @@ edit_comment: "# Auto-generated via Ansible: edit src/Dockerfiles/all/Dockerfile
 # Variables
 ########################################################################################################################
 nginx_version: "mainline-alpine"
+tpl_base: "../dist/{{ level }}-{{ os_name }}"
 
 
 # Dist directories
 ########################################################################################################################
 tpl_directories:
-  - path: "../dist/{{ level }}-{{ os_name }}/configs"
-  - path: "../dist/{{ level }}-{{ os_name }}/certs"
+  - path: "{{ tpl_base }}/configs"
+  - path: "{{ tpl_base }}/certs"
 
 
 # Dockerfile paths
 ########################################################################################################################
 tpl_dockerfiles:
   - src: Dockerfiles/all/Dockerfile.j2
-    dst: "../dist/{{ level }}-{{ os_name }}/Dockerfile"
+    dst: "{{ tpl_base }}/Dockerfile"
 
 
 # Additional configuration files
 ########################################################################################################################
 tpl_configs:
   - src: config/00-set-upstream.sh.j2
-    dst: "../dist/{{ level }}-{{ os_name }}/configs/00-set-upstream.sh"
+    dst: "{{ tpl_base }}/configs/00-set-upstream.sh"
   - src: config/00_upstream.conf.j2
-    dst: "../dist/{{ level }}-{{ os_name }}/configs/00_upstream.conf"
+    dst: "{{ tpl_base }}/configs/00_upstream.conf"
   - src: config/default.conf.j2
-    dst: "../dist/{{ level }}-{{ os_name }}/configs/default.conf"
+    dst: "{{ tpl_base }}/configs/default.conf"
   - src: config/nginx.conf.j2
-    dst: "../dist/{{ level }}-{{ os_name }}/configs/nginx.conf"
+    dst: "{{ tpl_base }}/configs/nginx.conf"
 
 
 # Dgoss tests
 ########################################################################################################################
 tpl_docker_tests:
   - src: Dockerfiles/all/goss.yaml.j2
-    dst: "../dist/{{ level }}-{{ os_name }}/goss.yaml"
+    dst: "{{ tpl_base }}/goss.yaml"
   - src: Dockerfiles/all/goss_wait.yaml
-    dst: "../dist/{{ level }}-{{ os_name }}/goss_wait.yaml"
+    dst: "{{ tpl_base }}/goss_wait.yaml"
 
 
 # SSL certs
 ########################################################################################################################
 tpl_certs:
   - src: certs/cert.pem
-    dst: "../dist/{{ level }}-{{ os_name }}/certs/"
+    dst: "{{ tpl_base }}/certs/"
   - src: certs/key.pem
-    dst: "../dist/{{ level }}-{{ os_name }}/certs/"
-  - src: certs/dhparam.pem
-    dst: "../dist/{{ level }}-{{ os_name }}/certs/"
+    dst: "{{ tpl_base }}/certs/"
   - src: certs/rootCA.pem
-    dst: "../dist/{{ level }}-{{ os_name }}/certs/"
+    dst: "{{ tpl_base }}/certs/"
 
 ...

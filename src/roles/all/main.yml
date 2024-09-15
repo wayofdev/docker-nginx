@@ -48,6 +48,12 @@
   with_items:
     - "{{ tpl_docker_tests }}"
 
+- name: Download dhparam.pem from Mozilla
+  ansible.builtin.get_url:
+    url: https://ssl-config.mozilla.org/ffdhe2048.txt
+    dest: "{{ tpl_base }}/certs/dhparam.pem"
+    mode: "0644"
+
 - name: Copy SSL certs
   ansible.builtin.template:
     src: "{{ item.src }}"
