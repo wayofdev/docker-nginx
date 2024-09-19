@@ -9,13 +9,13 @@
     <br>
 </p>
 
-<div align="center">
+<p align="center">
 <a href="https://actions-badge.atrox.dev/wayofdev/docker-nginx/goto"><img alt="Build Status" src="https://img.shields.io/endpoint.svg?url=https%3A%2F%2Factions-badge.atrox.dev%2Fwayofdev%2Fdocker-nginx%2Fbadge&style=flat-square"/></a>
 <a href="https://github.com/wayofdev/docker-nginx/tags"><img src="https://img.shields.io/github/v/tag/wayofdev/docker-nginx?sort=semver&style=flat-square" alt="Latest Version"></a>
 <a href="https://hub.docker.com/repository/docker/wayofdev/nginx"><img alt="Docker Pulls" src="https://img.shields.io/docker/pulls/wayofdev/nginx?style=flat-square"></a>
 <a href="LICENSE.md"><img src="https://img.shields.io/github/license/wayofdev/docker-nginx.svg?style=flat-square&color=blue" alt="Software License"/></a>
 <a href="#"><img alt="Commits since latest release" src="https://img.shields.io/github/commits-since/wayofdev/docker-nginx/latest?style=flat-square"></a>
-</div>
+</p>
 
 <br>
 
@@ -83,18 +83,18 @@ services:
     container_name: ${COMPOSE_PROJECT_NAME}-app
     restart: on-failure
     networks:
-        - default
-        - shared
+      - default
+      - shared
     depends_on:
-        - database
+      - database
     links:
-        - database
+      - database
     volumes:
-        - ./.github/assets:/assets:rw,cached
-        - ./app:/app:rw,cached
-        - ./.env:/app/.env
-        - ~/.composer:/.composer
-        - ~/.ssh:/home/www-data/.ssh
+      - ./.github/assets:/assets:rw,cached
+      - ./app:/app:rw,cached
+      - ./.env:/app/.env
+      - ~/.composer:/.composer
+      - ~/.ssh:/home/www-data/.ssh
     environment:
       FAKETIME: '+2h'
       XDEBUG_MODE: '${XDEBUG_MODE:-off}'
