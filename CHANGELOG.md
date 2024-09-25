@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.0.3](https://github.com/wayofdev/docker-nginx/compare/v2.0.2...v2.0.3) (2024-09-25)
+
+
+### Dependencies
+
+* **deps:** update actions/checkout action to v4.2.0 ([0854291](https://github.com/wayofdev/docker-nginx/commit/085429119fbd937a6cad50b655f0b85020a38a8c))
+
 ## [2.0.2](https://github.com/wayofdev/docker-nginx/compare/v2.0.1...v2.0.2) (2024-09-19)
 
 
