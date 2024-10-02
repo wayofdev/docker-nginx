@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.0.5](https://github.com/wayofdev/docker-nginx/compare/v2.0.4...v2.0.5) (2024-10-02)
+
+
+### Dependencies
+
+* **deps:** update docker/bake-action action to v5.10.0 ([dca87d6](https://github.com/wayofdev/docker-nginx/commit/dca87d6ba9c93e52f4865f0456ea07ef35566489))
+
 ## [2.0.4](https://github.com/wayofdev/docker-nginx/compare/v2.0.3...v2.0.4) (2024-09-30)
 
 
