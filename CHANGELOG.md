@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.0.6](https://github.com/wayofdev/docker-nginx/compare/v2.0.5...v2.0.6) (2024-11-13)
+
+
+### Dependencies
+
+* **deps:** update actions/checkout action to v4.2.2 ([0a66557](https://github.com/wayofdev/docker-nginx/commit/0a6655745850119b706e2c60fc96d43cc18aa48f))
+* **deps:** update ansible/ansible-lint action to v24.10.0 ([#49](https://github.com/wayofdev/docker-nginx/issues/49)) ([54ade86](https://github.com/wayofdev/docker-nginx/commit/54ade86860f478bcb96a5508e858f4f82a360d3c))
+
 ## [2.0.5](https://github.com/wayofdev/docker-nginx/compare/v2.0.4...v2.0.5) (2024-10-02)
 
 
