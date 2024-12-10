@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.0.9](https://github.com/wayofdev/docker-nginx/compare/v2.0.8...v2.0.9) (2024-12-10)
+
+
+### Dependencies
+
+* **deps:** update ansible/ansible-lint action to v24.12.0 ([#55](https://github.com/wayofdev/docker-nginx/issues/55)) ([03b94a5](https://github.com/wayofdev/docker-nginx/commit/03b94a55ddd72629d09df5c8cd9e5b53b9eee273))
+
 ## [2.0.8](https://github.com/wayofdev/docker-nginx/compare/v2.0.7...v2.0.8) (2024-12-03)
 
 
