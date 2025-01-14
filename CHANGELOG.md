@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.0.14](https://github.com/wayofdev/docker-nginx/compare/v2.0.13...v2.0.14) (2025-01-14)
+
+
+### Dependencies
+
+* **deps:** update wagoid/commitlint-github-action action to v6.2.1 ([#66](https://github.com/wayofdev/docker-nginx/issues/66)) ([109b0c1](https://github.com/wayofdev/docker-nginx/commit/109b0c1478cd6d452849d838ff6a3b2482cab8ce))
+
 ## [2.0.13](https://github.com/wayofdev/docker-nginx/compare/v2.0.12...v2.0.13) (2024-12-29)
 
 
