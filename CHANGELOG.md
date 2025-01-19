@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.0.15](https://github.com/wayofdev/docker-nginx/compare/v2.0.14...v2.0.15) (2025-01-19)
+
+
+### Dependencies
+
+* **deps:** update davidanson/markdownlint-cli2-action action to v19.1.0 ([#68](https://github.com/wayofdev/docker-nginx/issues/68)) ([821f4b4](https://github.com/wayofdev/docker-nginx/commit/821f4b429536875585e476890d18c7edc1039941))
+
 ## [2.0.14](https://github.com/wayofdev/docker-nginx/compare/v2.0.13...v2.0.14) (2025-01-14)
 
 
