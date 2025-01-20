@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.0.16](https://github.com/wayofdev/docker-nginx/compare/v2.0.15...v2.0.16) (2025-01-20)
+
+
+### Dependencies
+
+* **deps:** update ansible/ansible-lint action to v25 ([#70](https://github.com/wayofdev/docker-nginx/issues/70)) ([b32d29b](https://github.com/wayofdev/docker-nginx/commit/b32d29b1aee4f45d44ff7491a55dc2951876ff5c))
+
 ## [2.0.15](https://github.com/wayofdev/docker-nginx/compare/v2.0.14...v2.0.15) (2025-01-19)
 
 
