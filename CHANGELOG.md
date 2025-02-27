@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.0.22](https://github.com/wayofdev/docker-nginx/compare/v2.0.21...v2.0.22) (2025-02-27)
+
+
+### Dependencies
+
+* **deps:** update googleapis/release-please-action action to v4.1.4 ([#82](https://github.com/wayofdev/docker-nginx/issues/82)) ([462a8a3](https://github.com/wayofdev/docker-nginx/commit/462a8a3a75a64c359d6f4a4734cf7f22bd4aa480))
+
 ## [2.0.21](https://github.com/wayofdev/docker-nginx/compare/v2.0.20...v2.0.21) (2025-02-18)
 
 
