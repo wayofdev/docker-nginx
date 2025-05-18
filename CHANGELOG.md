@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.0.23](https://github.com/wayofdev/docker-nginx/compare/v2.0.22...v2.0.23) (2025-05-18)
+
+
+### Dependencies
+
+* **deps:** update wayofdev/gh-actions action to v3.3.0 ([#87](https://github.com/wayofdev/docker-nginx/issues/87)) ([a14d262](https://github.com/wayofdev/docker-nginx/commit/a14d26223f865af18ce016531ce0b99c9f02be41))
+
 ## [2.0.22](https://github.com/wayofdev/docker-nginx/compare/v2.0.21...v2.0.22) (2025-02-27)
 
 
