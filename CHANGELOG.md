@@ -1,5 +1,14 @@
 # Changelog
 
+## [2.0.24](https://github.com/wayofdev/docker-nginx/compare/v2.0.23...v2.0.24) (2025-05-18)
+
+
+### Dependencies
+
+* **deps:** update ansible/ansible-lint action to v25.4.0 ([#85](https://github.com/wayofdev/docker-nginx/issues/85)) ([caca110](https://github.com/wayofdev/docker-nginx/commit/caca110473662a5bee7e3b213e653255e51001fb))
+* **deps:** update davidanson/markdownlint-cli2-action action to v20 ([#86](https://github.com/wayofdev/docker-nginx/issues/86)) ([b3d5b64](https://github.com/wayofdev/docker-nginx/commit/b3d5b645bb65ec5ef1221e770ad4cf9751ad5709))
+* **deps:** update googleapis/release-please-action action to v4.2.0 ([#84](https://github.com/wayofdev/docker-nginx/issues/84)) ([ff88622](https://github.com/wayofdev/docker-nginx/commit/ff886220219cc4347efdbc160e304b5392acb5ca))
+
 ## [2.0.23](https://github.com/wayofdev/docker-nginx/compare/v2.0.22...v2.0.23) (2025-05-18)
 
 
